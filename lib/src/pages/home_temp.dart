@@ -35,6 +35,10 @@ class HomePageTemp extends StatelessWidget {
     for (var item in opciones) {
       final tempWidget = ListTile(
         title: Text('$item'),
+        subtitle: Text('Cualquier cosa'),
+        leading: Icon(Icons.add_a_photo),
+        trailing: Icon(Icons.add_call),
+        onTap: () {},
       );
 
       lista
