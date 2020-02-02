@@ -11,7 +11,12 @@ class HomePageTemp extends StatelessWidget {
     'sette',
     'otto',
     'nove',
-    'dieci'
+    'dieci',
+    'undici',
+    'dodici',
+    'tredici',
+    'quattordici',
+    'quindici'
   ];
 
   @override
@@ -29,8 +34,8 @@ class HomePageTemp extends StatelessWidget {
 
     for (var item in opciones) {
       final tempWidget = ListTile(
-          title: Text('$item'),
-        );
+        title: Text('$item'),
+      );
 
       lista
         ..add(tempWidget)
