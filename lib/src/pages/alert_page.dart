@@ -30,7 +30,7 @@ class AlertPage extends StatelessWidget {
   void _mostrarAlert(BuildContext context) {
     showDialog(
         context: context,
-        barrierDismissible: true,
+        barrierDismissible: false,
         builder: (context) {
           return AlertDialog(
             shape:
