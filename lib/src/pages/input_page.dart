@@ -12,8 +12,11 @@ class _InputPageState extends State<InputPage> {
   String _email = '';
   String _password = '';
   String _fecha = '';
+  String _opcionSeleccionada = 'volar';
 
-TextEditingController _inputfieldDateController = new TextEditingController();
+  List<String> _poderes = ['vision laser', 'volar', 'vision rayos X'];
+
+  TextEditingController _inputfieldDateController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +34,8 @@ TextEditingController _inputfieldDateController = new TextEditingController();
           _crearPassword(),
           Divider(),
           _crearFecha(context),
+          Divider(),
+          _crearDropdown(),
           Divider(),
           _crearPersona()
         ],
@@ -115,10 +120,45 @@ TextEditingController _inputfieldDateController = new TextEditingController();
     );
   }
 
+  List<DropdownMenuItem<String>> getOpcionesDropdown() {
+    List<DropdownMenuItem<String>> lista = new List();
+
+    _poderes.forEach((poder) {
+      lista.add(DropdownMenuItem(
+        value: poder,
+        child: Text(poder),
+      ));
+    });
+
+    return lista;
+  }
+
+  Widget _crearDropdown() {
+    return Row(
+      children: <Widget>[
+        Icon(Icons.select_all),
+        SizedBox(width: 30.0,),
+        Expanded(
+          child: DropdownButton(
+            value: _opcionSeleccionada,
+            items: getOpcionesDropdown(),
+            onChanged: (opt) {
+              print(opt);
+              setState(() {
+                _opcionSeleccionada = opt;
+              });
+            },
+          ),
+        )
+      ],
+    );
+  }
+
   Widget _crearPersona() {
     return ListTile(
       title: Text('El nombre de la persona es: $_nombre'),
       subtitle: Text('Email: $_email'),
+      trailing: Text(_opcionSeleccionada),
     );
   }
 
@@ -126,8 +166,8 @@ TextEditingController _inputfieldDateController = new TextEditingController();
     DateTime picked = await showDatePicker(
         context: context,
         initialDate: new DateTime.now(),
-        firstDate: new DateTime(DateTime.now().year-100),
-        lastDate: new DateTime(DateTime.now().year+1),
+        firstDate: new DateTime(DateTime.now().year - 100),
+        lastDate: new DateTime(DateTime.now().year + 1),
         locale: Locale('es'));
     if (picked != null) {
       setState(() {
