@@ -1,5 +1,3 @@
-import 'dart:isolate';
-
 import 'package:flutter/material.dart';
 
 import 'dart:async';
@@ -33,7 +31,6 @@ class _ListaPageState extends State<ListaPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _scrollController.dispose();
   }
@@ -41,7 +38,7 @@ class _ListaPageState extends State<ListaPage> {
   void cambioScroll() {
     // print('Scrol2!!');
     if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
+        (_scrollController.position.maxScrollExtent)) {
       // _agregar10();
       fetchData();
     }
@@ -101,7 +98,7 @@ class _ListaPageState extends State<ListaPage> {
   }
 
   Future<Null> obtenerPagina1() async {
-    final duracion = new Duration(seconds: 2);
+    final duracion = new Duration(seconds: 1);
     new Timer(duracion, () {
       _listaNumeros.clear();
       _ultimoItem++;
@@ -123,7 +120,7 @@ class _ListaPageState extends State<ListaPage> {
   Future<Null> fetchData() async {
     _isLoading = true;
     setState(() {});
-    final duracion = new Duration(seconds: 2);
+    final duracion = new Duration(milliseconds: 200);
     return new Timer(duracion, respuestaHTTP);
   }
 
