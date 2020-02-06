@@ -7,7 +7,18 @@ class AvatarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Avatar Page'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/rpaico.png',
+              fit: BoxFit.contain,
+              height: 32,
+            ),
+            Container(
+                padding: const EdgeInsets.all(8.0), child: Text('Avatars'))
+          ],
+        ),
         actions: <Widget>[
           Container(
               padding: EdgeInsets.all(5.0),
@@ -20,7 +31,7 @@ class AvatarPage extends StatelessWidget {
             child: Text('SL'),
             backgroundColor: Colors.yellowAccent,
           ))
-        ],
+        ]
       ),
       body: Center(
         child: FadeInImage(

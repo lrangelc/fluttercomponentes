@@ -12,8 +12,23 @@ class HomePage extends StatelessWidget {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Componentes'),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Image.asset(
+                'assets/rpaico.png',
+                fit: BoxFit.contain,
+                height: 32,
+              ),
+              Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Componentes - RPA - Flutter'))
+            ],
+          ),
         ),
+        // appBar: AppBar(
+        //   title: Text('Componentes - RPA - Flutter'),
+        // ),
         body: _lista(),
       ),
     );

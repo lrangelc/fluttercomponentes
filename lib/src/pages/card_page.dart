@@ -7,7 +7,7 @@ class CardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Card Page'),
+        title: Text('Cards - Tarjetas'),
       ),
       body: ListView(
         padding: EdgeInsets.all(10.0),

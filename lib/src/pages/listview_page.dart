@@ -48,7 +48,7 @@ class _ListaPageState extends State<ListaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Listas'),
+        title: Text('Listas y Scroll'),
       ),
       body: Stack(
         children: <Widget>[_crearLista(), _crearLoading()],
